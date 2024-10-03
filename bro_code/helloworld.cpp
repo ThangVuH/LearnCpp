@@ -822,7 +822,7 @@ double withdraw(double balance){
 */
 
 // Exercise 31: Rock, Paper, Sissors game
-
+/*
 #include <ctime>
 char getUserChoice();
 char getComputerChoice();
@@ -859,16 +859,14 @@ char getUserChoice(){
 }
 char getComputerChoice(){
     srand(time(NULL));
-    char nbr = rand()% 3+1;
+    int nbr = rand()% 3+1;
 
-    switch (nbr)
-    {
+    switch (nbr){
     case 1: return 'r';
     case 2: return 'p';
     case 3: return 's';
-    default: std::cout << "Error";
-        break;
     }
+    return 0;
 }
 void showChoice(char choice){
     switch (choice)
@@ -913,4 +911,63 @@ void chooseWinner(char player, char computer){
     default:
         break;
     }
+}
+void chooseWinner_1(char player, char computer){
+    if(player == computer){
+        std::cout << "Tie" << std::endl;
+    }else if (player == 'r' && computer == 's'){
+        std::cout << "You win";
+    }else if (player == 'p' && computer == 'r'){
+        std::cout << "You win";
+    }else if (player == 's' && computer == 'p'){
+        std::cout << "You win";
+    }else {
+        std::cout<< "You lose" << std::endl;
+    }
+}
+*/
+
+// Lesson 32: Arrays 
+/*
+int main(){
+
+    std::string cars[] = {"Kia", "Merc", "Audi"};
+
+    cars[1] = "Ford";
+    // std::cout << cars; // only print out the memory address
+    std::cout << cars[0] << std::endl;
+    std::cout << cars[1] << std::endl;
+    std::cout << cars[2] << std::endl;
+
+    std::string fruits[3];
+    fruits[0] = "Apple";
+    fruits[1] = "Banana";
+    fruits[2] = "Citron";
+
+    std::cout << fruits[2] << std::endl;
+    return 0;
+}
+*/
+
+// Lesson 33: sizeof() function
+// sizeof() = determines the size in bytes of : variable, datatype, class, objects, etc...
+
+int main(){
+    double gpa = 2.5;
+    std::string name = "tommy";
+    char grade = 'A';
+    bool student = true;
+    char grades[] = {'A', 'B', 'C', 'D', 'F'};
+    std::string students[] = {"Anna", "Bob", "Cleo", "Dave"};
+
+    std::cout << sizeof(double) << " bytes"<< std::endl;
+    std::cout << sizeof(gpa) << std::endl;
+    std::cout << sizeof(name) << std::endl;
+    std::cout << sizeof(grade) << std::endl;
+    std::cout << sizeof(student) << std::endl;
+    std::cout << sizeof(grades)/sizeof(grades[0]) << " elements"<< std::endl;
+    std::cout << sizeof(students)/sizeof(std::string)<< " elements"<< std::endl;
+    std::cout << sizeof(students)<< " bytes"<< std::endl;
+
+    return 0;
 }
