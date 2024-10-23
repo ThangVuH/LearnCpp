@@ -952,6 +952,7 @@ int main(){
 // Lesson 33: sizeof() function
 // sizeof() = determines the size in bytes of : variable, datatype, class, objects, etc...
 
+/*
 int main(){
     double gpa = 2.5;
     std::string name = "tommy";
@@ -969,5 +970,30 @@ int main(){
     std::cout << sizeof(students)/sizeof(std::string)<< " elements"<< std::endl;
     std::cout << sizeof(students)<< " bytes"<< std::endl;
 
+    return 0;
+}
+*/
+
+// Lesson 34: Iterate over an array
+/*
+int main(){
+    std::string students[] = {"Ana", "Bob", "Cleo", "Dave"};
+
+    for(int i = 0; i < sizeof(students)/sizeof(std::string); i++){
+        std::cout << students[i] << std::endl;
+    }
+    return 0;
+}
+*/
+
+// Lesson 35: Foreach loop
+
+int main(){
+    std::string students[] = {"Anna", "Bob", "Cleo", "Dave"};
+
+    for(std::string student : students){
+        std::cout << student << std::endl;
+    }
+    
     return 0;
 }
