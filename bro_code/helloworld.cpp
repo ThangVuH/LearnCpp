@@ -988,6 +988,7 @@ int main(){
 
 // Lesson 35: Foreach loop
 
+/*
 int main(){
     std::string students[] = {"Anna", "Bob", "Cleo", "Dave"};
 
@@ -996,4 +997,63 @@ int main(){
     }
     
     return 0;
+}
+*/
+
+// Lesson 36: Pass array to a function
+/* When put the array as an argument in function; 
+array transform to pointer therefore we must define the size of the array too
+*/
+/*
+double getTotal(double prices[], int size);
+int main(){
+    double prices[] = {4.99, 8.5, 10.6, 15, 19.99};
+    int size = sizeof(prices)/sizeof(prices[0]);
+    double total = getTotal(prices, size);
+
+    std::cout << total << " $";
+
+    return 0;
+}
+
+double getTotal(double prices[], int size){
+    double total = 0;
+    for(int i = 0; i <= size; i++){
+        total += prices[i];
+    }
+    return total;
+}
+*/
+
+// Lesson 37: Search an array for an element
+
+int searchArray(int array[], int size, int guess);
+int main(){
+    int number[] = {0,1,2,3,4,5,6,7,8,9};
+    int size = sizeof(number)/sizeof(int);
+    int myNum;
+    int index;
+
+
+    std::cout << "***** ***** *****" << std::endl;
+    std::cout << "Enter element to search for: ";
+    std::cin >> myNum;
+
+    index = searchArray(number, size, myNum);
+    if(index != -1){
+        std::cout << myNum <<" is located at: " << index << std::endl;
+    }else{
+        std::cout << myNum << " Not in the list" <<std::endl;
+    }
+
+    return 0;
+}
+
+int searchArray(int array[], int size, int element){
+    for(int i=0; i < size; i++){
+        if(array[i] == element){
+            return i;
+        }
+    }
+    return -1;
 }
