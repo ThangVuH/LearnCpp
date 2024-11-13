@@ -1026,7 +1026,7 @@ double getTotal(double prices[], int size){
 */
 
 // Lesson 37: Search an array for an element
-
+/*
 int searchArray(int array[], int size, int guess);
 int main(){
     int number[] = {0,1,2,3,4,5,6,7,8,9};
@@ -1056,4 +1056,113 @@ int searchArray(int array[], int size, int element){
         }
     }
     return -1;
+}
+*/
+// Lesson 38: sort an array (buble sort)
+
+// my method (not efficient when still loop through the sorted part of array)
+/*
+void compare(int array[], int size);
+int main(){
+    int array[] = {10, 1, 9, 2, 8, 3, 7, 4, 6, 5};
+    int size = sizeof(array)/sizeof(int);
+
+    std::cout << "Array before sort: "<<std::endl;
+    for(int element:array){
+        std::cout << element << " | ";
+    }
+    std::cout << "\n"<<std::endl;
+    std::cout << "Array after sort: "<<std::endl;
+    for(int i=0; i<size; i++){
+        compare(array, size);
+        std::cout << array[i] << " | ";
+    }
+    return 0;
+}
+
+void compare(int array[], int size){
+    int temp;
+    for(int i=0; i<size-1; i++){
+        if(array[i] > array[i+1]){
+            temp = array[i];
+            array[i] = array[i+1];
+            array[i+1] = temp;
+        }
+    }
+}
+*/
+
+// bro code method
+/*
+void sort(int array[], int size);
+int main(){
+    int array[] = {10, 1, 9, 2, 8, 3, 7, 4, 6, 5};
+    int size = sizeof(array)/sizeof(int);
+
+    std::cout << "Array before sort: "<<std::endl;
+    for(int element:array){
+        std::cout << element << " | ";
+    }
+    std::cout << "\n"<<std::endl;
+
+    sort(array, size);
+    std::cout << "Array before sort: "<<std::endl;
+    for(int element:array){
+        std::cout << element << " | ";
+    }
+    return 0;
+}
+void sort(int array[], int size){
+    int temp;
+    for(int i=0; i<size-1; i++){
+        for(int j=0; j<size-i-1; j++){
+            // `j<size-i-1` because we don't care the highest nbr sorted on the right side
+            if(array[j] > array[j+1]){
+                temp = array[j];
+                array[j] = array[j+1];
+                array[j+1] = temp;
+            }
+        }
+    }
+}
+*/
+
+// Lesson 39: Fill() function
+// fill(begin, end, value)
+/*
+int main(){
+    const int SIZE = 5;
+    std::string foods[SIZE];
+    fill(foods, foods + (SIZE/2), "pizza");
+    fill(foods + (SIZE/2),foods+(SIZE/2)*2, "burger");
+    fill(foods + (SIZE/2)*2,foods+(SIZE), "hotdog");
+
+    for(std::string food: foods){
+        std::cout << food << std::endl;
+    }
+    return 0;
+}
+*/
+
+// Lesson 40: Fill an array with the user input
+int main(){
+    std::string foods[5];
+    int size = sizeof(foods)/sizeof(std::string);
+    std::string temp;
+
+    for(int i=0; i<size; i++){
+        std::cout <<"Enter a food or 'q' to quit: ";
+        std::getline(std::cin, temp);
+        if(temp == "q"){
+            break;
+        }else{
+            foods[i] = temp;
+        }
+    }
+
+    std::cout << "You like the following foods: " <<std::endl;
+    for(int i = 0; !foods[i].empty(); i++){
+        std::cout << foods[i] <<std::endl;
+    }
+    return 0;
 }
