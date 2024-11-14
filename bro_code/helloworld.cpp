@@ -1145,6 +1145,7 @@ int main(){
 */
 
 // Lesson 40: Fill an array with the user input
+/*
 int main(){
     std::string foods[5];
     int size = sizeof(foods)/sizeof(std::string);
@@ -1163,6 +1164,24 @@ int main(){
     std::cout << "You like the following foods: " <<std::endl;
     for(int i = 0; !foods[i].empty(); i++){
         std::cout << foods[i] <<std::endl;
+    }
+    return 0;
+}
+*/
+// Lesson 41: Multidimensional arrays
+
+int main(){
+    std::string cars[3][2] = {{"Mustang", "Escape"},
+                            {"Corvette", "Equinox"},
+                            {"Challenger", "Durango"}};
+    
+    int rows = sizeof(cars)/sizeof(cars[0]);
+    int columns = sizeof(cars[0])/sizeof(cars[0][0]);
+    for(int i = 0; i<rows; i++){
+        for(int j = 0; j<columns; j++){
+            std::cout << cars[i][j] << " ";
+        }
+        std::cout << std::endl;
     }
     return 0;
 }
