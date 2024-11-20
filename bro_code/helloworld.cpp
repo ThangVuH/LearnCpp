@@ -1169,7 +1169,7 @@ int main(){
 }
 */
 // Lesson 41: Multidimensional arrays
-
+/*
 int main(){
     std::string cars[3][2] = {{"Mustang", "Escape"},
                             {"Corvette", "Equinox"},
@@ -1184,4 +1184,48 @@ int main(){
         std::cout << std::endl;
     }
     return 0;
+}
+*/
+
+// Excercise 42: Quiz game
+int main(){
+    std::string questions[] =   {"1. What year was C++ created ?: ",
+                                "2. Who invented C++ ?: ",
+                                "3. What is the predecessor of C++ ?: ",
+                                "4. Does C++ require compiler?: "};
+    std::string options[][4] = {{"A. 1969", "B. 1975", "C. 1985", "D. 1989"},
+                                {"A. Guido van Rossum", "B. Bjarne Stroustrup", "C. James Gosling", "D. Dennis Ritchie"},
+                                {"A. C", "B. C+", "C. C--", "D. B++"},
+                                {"A. yes", "B. no", "C. sometimes", "D. What's compiler?"}};
+
+    char answerKey[] = {'C', 'B', 'A', 'A'};
+    int size = sizeof(questions)/sizeof(questions[0]);
+    char guess;
+    int score;
+
+    for(int i=0; i<size; i++){
+        std::cout << "********** \n";
+        std::cout << questions[i];
+        std::cout << "********** \n";
+        for(int j=0; j<sizeof(options[i])/sizeof(options[i][j]); j++){
+            std::cout << options[i][j] << "\n";
+        }
+        std::cout << "Enter answer: ";
+        std::cin >> guess;
+
+        guess = toupper(guess);
+        if(guess == answerKey[i]){
+            std::cout << "Correct! \n";
+            score++;
+        }else{
+            std::cout << "Wrong! \n";
+            std::cout << "answer is: "<< answerKey[i] << "\n";
+        }
+    }
+    std::cout << "********** \n";
+    std::cout << "RESULT!" << "\n";
+    std::cout << "********** \n";
+    std::cout << "score: "<< score <<"\n";
+    std::cout << "number of question: "<< size <<"\n";
+    std::cout << (score/(double)size)*100 << "% \n";
 }
