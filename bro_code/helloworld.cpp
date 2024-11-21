@@ -1188,6 +1188,7 @@ int main(){
 */
 
 // Excercise 42: Quiz game
+/*
 int main(){
     std::string questions[] =   {"1. What year was C++ created ?: ",
                                 "2. Who invented C++ ?: ",
@@ -1228,4 +1229,65 @@ int main(){
     std::cout << "score: "<< score <<"\n";
     std::cout << "number of question: "<< size <<"\n";
     std::cout << (score/(double)size)*100 << "% \n";
+}
+*/
+
+// Lesson 43: Memory addresses
+// def: memory addresses is a loction that data can be stored
+/*
+int main(){
+    std::string name = "Tom";
+    int age = 22;
+    bool student = true;
+
+    std::cout << &name << std::endl; 
+    std::cout << &age << std::endl;
+    std::cout << &student << std::endl;
+    
+    return 0;
+}
+*/
+
+// Lesson 44: pass by VALUE and pass by REFERENCE
+// pass by value: make a copy of value (save in different allocation) to do
+// pass by reference: actualy take value from memory address
+
+/*
+void swap(std::string &x, std::string &y);
+int main(){
+    std::string cup_1 = "Coke";
+    std::string cup_2 = "Water";
+
+    
+    std::cout <<"Cup 1: "<< cup_1 << std::endl;
+    std::cout <<"Cup 2: "<< cup_2 << std::endl;
+
+    swap(cup_1, cup_2);
+
+    std::cout << "===== Swap ====="<< std::endl;
+    std::cout <<"Cup 1: "<< cup_1 << std::endl;
+    std::cout <<"Cup 2: "<< cup_2 << std::endl;
+    return  0;
+}
+void swap(std::string &x, std::string &y){
+    std::string temp;
+    temp = x;
+    x = y;
+    y = temp;
+}
+*/
+
+// Lesson 45: const parameters
+// def: parameter that effectively read-only => more secure & convey intent useful for reference & pointers
+void printInfo(const std::string name, const int age);
+int main(){
+    std::string name = "Tom";
+    int age = 22;
+
+    printInfo(name, age);
+    return 0;
+}
+void printInfo(const std::string name, const int age){
+    std::cout << name <<std::endl;
+    std::cout << age << std::endl;
 }
