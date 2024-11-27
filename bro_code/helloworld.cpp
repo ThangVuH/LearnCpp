@@ -1279,6 +1279,7 @@ void swap(std::string &x, std::string &y){
 
 // Lesson 45: const parameters
 // def: parameter that effectively read-only => more secure & convey intent useful for reference & pointers
+/*
 void printInfo(const std::string name, const int age);
 int main(){
     std::string name = "Tom";
@@ -1291,3 +1292,4 @@ void printInfo(const std::string name, const int age){
     std::cout << name <<std::endl;
     std::cout << age << std::endl;
 }
+*/
